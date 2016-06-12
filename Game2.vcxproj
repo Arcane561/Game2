@@ -18,6 +18,33 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\tinyxml\tinystr.cpp" />
+    <ClCompile Include="source\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="source\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="source\tinyxml\tinyxmlparser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Animation.hpp" />
+    <ClInclude Include="source\Bullet.hpp" />
+    <ClInclude Include="source\Enemy.hpp" />
+    <ClInclude Include="source\Entity.hpp" />
+    <ClInclude Include="source\Game.hpp" />
+    <ClInclude Include="source\HealthBar.hpp" />
+    <ClInclude Include="source\level.hpp" />
+    <ClInclude Include="source\MovingPlatform.hpp" />
+    <ClInclude Include="source\Player.hpp" />
+    <ClInclude Include="source\tinyxml\tinystr.h" />
+    <ClInclude Include="source\tinyxml\tinyxml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="source\tinyxml\tinyxml.sln" />
+    <None Include="source\tinyxml\tinyxmlSTL.vcxproj" />
+    <None Include="source\tinyxml\tinyXmlTest.vcxproj" />
+    <None Include="source\tinyxml\tinyXmlTestSTL.vcxproj" />
+    <None Include="source\tinyxml\tinyxml_lib.vcxproj" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{AB885A12-FFB3-40C1-9990-3A7AF8085A4C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -87,12 +114,15 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_DYNAMIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\SFML-2.3.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\SFML-2.3.2\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -145,8 +175,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
