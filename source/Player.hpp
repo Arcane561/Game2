@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "Entity.hpp"
+#include "Game.hpp"
 
 
 class PLAYER: public Entity
@@ -10,7 +11,7 @@ public:
 	enum {stay,walk,duck,jump,climb,swim} STATE;
 	bool onLadder, shoot, hit; //Onlader на лестнице 
 	std::map<std::string,bool> key; // сохраняю нажатие клавиш 
-
+    
 	PLAYER(AnimationManager &a, Level &lev,int x,int y):Entity(a,x,y)
 	{
 		option("Player",0,100,"stay");
@@ -99,10 +100,17 @@ public:
     }
 
 	void update(float time)
-	{
+	{ 
+
 		Keyboard();
 
         Animation(time);
+
+		if ((Health) == 0) 
+		{
+		
+		 exit(1);
+		}
 
 		if (STATE==climb) if (!onLadder) STATE=stay;
         if (STATE!=climb) dy+=0.0005*time;
